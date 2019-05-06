@@ -1,0 +1,294 @@
+
+ @keyframes target {
+    0% {
+      transform: rotateZ(0) scale(0.6);
+    }
+    50% {
+      transform: rotateZ(180deg) scale(1);
+    }
+    100% {
+      transform: rotateZ(360deg) scale(0.6);
+    }
+  }
+  .target {
+    position: relative;
+    background-color: #fff;
+    border: 2px solid #b3b3b3;
+    box-shadow: 0 0 4px 2px rgba(0, 0, 0, .2);
+    animation: target 2s linear infinite;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+  }
+  .target:before, .target:after {
+    content: "";
+    display: block;
+    position: absolute;
+  }
+  .target:before {
+    top: 16px;
+    left: 16px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 0 0;
+    border-color: #b3b3b3 transparent transparent transparent;
+  }
+  .target:after {
+    bottom: 16px;
+    right: 16px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 10px 10px;
+    border-color: transparent transparent #b3b3b3 transparent;
+  }
+
+  /*sq*/
+
+  @keyframes sq {
+    from {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 1), 0 0 0 0 rgba(255, 255, 255, 1);
+    }
+    to {
+      box-shadow: 0 0 0 8px rgba(255, 255, 255, 0), 0 0 0 12px rgba(255, 255, 255, 0);
+    }
+  }
+  .sq {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    border-radius: 20%;
+    background-color: rgba(70, 217, 192, .6);
+    box-shadow: inset 0 0 8px 6px rgba(32, 153, 133, .4), 0 0 4px 2px rgba(0, 0, 0, .2);
+    transform: rotateZ(45deg);
+  }
+  .sq:before {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: "";
+    display: block;
+    background-color: rgba(255, 255, 255, .4);
+    animation: sq 800ms infinite;
+  }
+
+  /*morph*/
+
+  @keyframes morph {
+    0% {
+      transform: rotateZ(0);
+      border-radius: 20%;
+    }
+    50% {
+      transform: rotateZ(45deg);
+      border-radius: 50%;
+    }
+    100% {
+      transform: rotateZ(90deg);
+      border-radius: 20%;
+    }
+  }
+  .morph {
+    width: 36px;
+    height: 36px;
+    position: relative;
+    box-shadow: 0 0 6px 4px rgba(247, 45, 65, .4);
+    animation: morph 1s linear infinite;
+  }
+  .morph, .morph:before {
+    background-color: rgba(247, 45, 65, .6);
+  }
+  .morph:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    content: "";
+    display: block;
+  }
+
+  /*egg*/
+
+  @keyframes egg {
+    from {
+      box-shadow: inset 0 0 12px 6px rgba(247, 126, 45, .6);
+    }
+    to {
+      box-shadow: inset 0 0 4px 2px rgba(247, 126, 45, .4);
+    }
+  }
+  .egg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: inset 0 0 6px 4px rgba(247, 126, 45, .6);
+    animation: egg 600ms linear infinite;
+    animation-direction: alternate;
+  }
+  .egg:before {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: "";
+    display: block;
+    background-color: rgba(247, 126, 45, .8);
+    border: 2px solid #f77e2d;
+  }
+
+  /*wheel*/
+
+  @keyframes wheel {
+    from {
+      transform: rotateZ(0);
+    }
+    to {
+      transform: rotateZ(-360deg);
+    }
+  }
+  .wheel {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+    border: 4px dashed #37b475;
+    animation: wheel 6s linear infinite;
+    box-shadow: inset 0 0 4px 2px rgba(55, 180, 117, .6);
+  }
+  .wheel:before {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: "";
+    display: block;
+    background-color: #37b475;
+  }
+
+  /*wheel-alt*/
+
+  .wheel-alt {
+    box-shadow: inset 0 0 0 2px #53cb8f;
+    border-color: #53cb8f;
+  }
+  .wheel-alt:before {
+    border: 2px solid #31a068;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, .3);
+  }
+
+  /*wheel-alt2*/
+
+  .wheel-alt2 {
+    box-shadow: none;
+    border-color: #31a068;
+  }
+  .wheel-alt2:before {
+    border: 2px solid #31a068;
+  }
+
+  /*swoop*/
+
+  @keyframes swoop {
+    0% {
+      box-shadow: inset 0 0 0 0 #67c1ea, inset 0 0 0 0 white;
+    }
+    50% {
+      box-shadow: inset 0 0 0 0 #67c1ea, inset 0 0 0 15px white;
+    }
+    100% {
+      box-shadow: inset 0 0 0 15px #67c1ea, inset 0 0 0 15px white;
+    }
+  }
+  .swoop {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    animation: swoop 1s infinite;
+    animation-direction: reverse;
+    animation-timing-function: cubic-bezier(0.71, 0.13, 1, 0.71);
+    background-color: #67c1ea;
+  }
+
+  /*slack*/
+  
+  @keyframes slack {
+    from {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+      transform: translate(-50%, -50%) scale(1.5);
+    }
+  }
+  .slack {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 0 4px 2px rgba(0, 0, 0, .2);
+  }
+
+  .slack:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    border: 4px solid #fff;
+    box-shadow: inset 0 0 4px 2px rgba(0, 0, 0, .2), 0 0 4px 2px rgba(0, 0, 0, .2);
+    animation: slack 400ms linear infinite;
+    animation-direction: alternate;
+  }
+
+  /*sonar*/
+  
+  @keyframes sonar {
+    from {
+      box-shadow: 0 0 0 0 rgba(255, 147, 223, 1), 0 0 4px 2px rgba(0, 0, 0, .4);
+    }
+    to {
+      box-shadow: 0 0 0 10px rgba(255, 147, 223, 0), 0 0 4px 2px rgba(0, 0, 0, .4);
+    }
+  }
+  .sonar {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ff93df;
+    border: 2px solid #ff60d0;
+    animation: sonar 800ms ease-out infinite;
+  }
+  
+  /*Uninteresting stuff*/
+
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+  .item-inner {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+  .item-inner > a {
+    text-decoration: none;
+    display: inline-block;
+  }
