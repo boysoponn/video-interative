@@ -1,11 +1,10 @@
 import React from 'react';
 import '../css/intro.css';
 import '../css/animation.css';
-import { Row, Col } from 'antd';
+import Suggestion from './suggestion';
 import { Player  ,ControlBar} from 'video-react';
 import videoIntro from '../video/intro.mp4';
-import videoIntro2 from '../video/hh2.mp4';
-import Tools from '../video/tools.mp4';
+
 class Intro extends React.Component {
   state={
     classShow:"fadeIn",
@@ -26,12 +25,8 @@ class Intro extends React.Component {
   }
 
   render(){
-    let video=videoIntro;
-    if(window.innerWidth<window.innerHeight){
-      video=videoIntro2;
-    }
     return (
-    <div>
+    <div className="intro">
       <div className="introBackground">
         <div className={"introText animated "+this.state.classShow}>
             <h1 className="introH1">ภาพยนตร์สั้นปฏิสัมพันธ์</h1>
@@ -39,40 +34,12 @@ class Intro extends React.Component {
             <button className="introButton" onClick={this.letPlay}>เริ่มต้น</button>
         </div>
         {!this.state.howToShow?null:
-        <div className={"introHowto animated fadeIn"}>
-            <Row>
-            <Col span={24} >
-            <p className="introTextHowto">คำแนะนำ</p>
-            <p className="introTextHowto">ก่อนรับชมภาพยนตร์สั้นปฏิสัมพันธ์</p>
-            <div className="videoHowto">
-            <Player
-                ref="howto"
-                autoPlay
-                loop
-                muted
-                src={Tools}
-                disableDefaultControls={true}
-              > 
-              <ControlBar disableCompletely={true} />
-              </Player>
-              </div>
-              <p className="introP">กดอันใดอันหนึ่งเพื่อเลือกและดำเนินวิดีโอต่อไป</p> 
-              <button className="introButton" onClick={this.props.onClick}>เริ่มเล่น</button>
-            </Col>
-            </Row> 
-        </div>
-          } 
+          <Suggestion onClick={this.props.onClick}/>
+        } 
       </div>
       <div className="introPlayer">
-        <Player
-          ref="bg"
-          autoPlay
-          loop
-          muted
-          src={video}
-          disableDefaultControls={true}
-        > 
-        <ControlBar disableCompletely={true} />
+        <Player ref="bg" autoPlay loop  muted src={videoIntro} disableDefaultControls={true}> 
+          <ControlBar disableCompletely={true} />
         </Player>
       </div>
     </div>

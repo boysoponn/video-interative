@@ -11,15 +11,7 @@
     width:50%;
     text-align:center;
 }
-.textTitle{
-    font-size:100px;
-    color: #fff;
-    margin:0;
-}
-.textDescription{
-    font-size:20px;
-    color: #fff;
-}
+
 .textButton{
     width: 200px;
     height: 80px;
@@ -41,13 +33,7 @@
         height: 30px;
         font-size: 10px;
         border: 2px solid #fff;
-    }
-    .textTitle{
-        font-size:50px;
-    }
-    .textDescription{
-        font-size:15px;
-    }    
+    }  
 }
 
 @media screen and (max-width : 767px) {
@@ -57,18 +43,12 @@
         height: 20px;
         font-size: 10px;
         border: 2px solid #fff;
-    }
-    .textTitle{
-        font-size:15px;
-    }
-    .textDescription{
-        font-size:10px;
     }     
 }
 
 .animated {
     -webkit-animation-duration: 1.5s;
-    animation-duration: 1.5s;
+    animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }

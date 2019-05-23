@@ -13,19 +13,29 @@
 }
 .introText{
     position: absolute;
-    text-align: center;
-    top: 50%;
-    left: 50%;
-    width: 80%;
-    transform: translate(-50%, -50%);
+    bottom: 5%;
+    left: 5%;
+    width: 40%;
 }
 .videoHowto{
-    padding: 3% 32%;
+    margin: 10%;
+    border: 10px azure solid;
+    border-radius: 10px;
+    box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.2), 0 18px 60px 0 rgba(0, 0, 0, 0.19);
 }
-.introHowto{
-    position: absolute;
+.blockVideoHowto{
     width: 100%;
     height: 100%;
+    position: absolute;
+    z-index: 5;
+}
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.introHowto{   
+    width: 100%;
     text-align: center;
 }
 
@@ -41,7 +51,7 @@
     color: white;
     margin-bottom: 0;
     margin-top: 0;
-    font-size: 100px;
+    font-size: 80px;
 }
 .introP{
     font-size: 20px;
@@ -81,9 +91,6 @@
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-width : 320px) and (max-width : 480px) {
-    .introHowto{
-        margin-top: 5%;
-    }
     .introTextHowto{
         font-size: 20px;
     }
@@ -96,42 +103,61 @@
         padding: 12px;
         font-size: 12px;
     }
-    .videoHowto{
-        padding:12% 5%;
+    .introH1{
+        font-size: 30px;
+    }
+    .introP{
+        font-size: 10px;
     }
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-    .introHowto{
-        margin-top: 5%;
-    }
     .introTextHowto{
         font-size: 30px;
     }
     .introP{
         font-size: 18px;
     }
-    .videoHowto{
-        padding:12% 5%;
-    }
   }
  
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-width : 768px)and (max-width : 1024px) {
-    .introHowto{
-        margin-top: 5%;
-    }
     .introTextHowto{
         font-size: 40px;
     }
     .introP{
         font-size: 20px;
     }
-    .videoHowto{
-        padding:10% 5%;
+    .introH1{
+        font-size: 50px;
+    }
+    .introP{
+        font-size: 18px;
     }
 }
   
-/* iPhone 5 */
-/* @media only screen and (min-width : 320px) and (max-width : 568px) {
-} */
+@media only screen and (min-width : 320px) and (max-width : 1024px) {
+    .row{
+        display: unset;
+    }
+    .introPlayer{
+        display: none;
+    }
+    .intro{
+        background-image: url("../image/1.jpeg");
+        height: 100vh; 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .introText{
+        position: absolute;
+        text-align: center;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
  
