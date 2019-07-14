@@ -9,13 +9,10 @@
 }
 .showInteractive{
     z-index: 50;
-}
-.box{
-    width:100%; 
-    height:100vh;
-    z-index:5;
-    position:absolute;  
-    background:rgba(27, 27, 27, 0.3);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 .interactiveButton{
     z-index: 10;
@@ -33,21 +30,6 @@
     cursor:pointer;
 }
 
-.divIcon{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin:20px;
-}
-.icon{
-    width:30px;
-    cursor:pointer;
-    margin: 5px;
-}
-
-.icon:hover{
-    transform: scale(1.1);
-}
 
 .animated {
     -webkit-animation-duration: 0.3s;

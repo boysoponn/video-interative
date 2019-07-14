@@ -1,51 +1,39 @@
 import React from 'react';
-import Intro from './intro';
-import Interactive from './interactive';
+import '../css/intro.css';
+import '../css/animation.css';
+import { Player  ,ControlBar} from 'video-react';
+import videoIntro from '../video/intro.mp4';
+import Mp3 from '../video/mp3.mp3';
+import Sound from 'react-sound';
+import {Link} from 'react-router-dom';
 
 class Homepage extends React.Component {
   state={
-    showInteractive:false,
-    fullScreen:false
   }
-  showInteractive=()=>{
-    this.setState({
-      showInteractive:true
-    })
-    this.full();
-  }
-  full=()=>{
-    var elem = document.documentElement;
-    if ((document.fullScreenElement !== undefined && document.fullScreenElement === null) || (document.msFullscreenElement !== undefined && document.msFullscreenElement === null) || (document.mozFullScreen !== undefined && !document.mozFullScreen) || (document.webkitIsFullScreen !== undefined && !document.webkitIsFullScreen)) {
-      if (elem.requestFullScreen) {
-          elem.requestFullScreen();
-      } else if (elem.mozRequestFullScreen) {
-          elem.mozRequestFullScreen();
-      } else if (elem.webkitRequestFullScreen) {
-          elem.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-      } else if (elem.msRequestFullscreen) {
-          elem.msRequestFullscreen();
-      }
-  } else {
-      if (document.cancelFullScreen) {
-          document.cancelFullScreen();
-      } else if (document.mozCancelFullScreen) {
-          document.mozCancelFullScreen();
-      } else if (document.webkitCancelFullScreen) {
-          document.webkitCancelFullScreen();
-      } else if (document.msExitFullscreen) {
-          document.msExitFullscreen();
-      }
-  }
-  }
+
   render(){
       return (
-      <div>
-        {!this.state.showInteractive?
-        <Intro onClick={this.showInteractive} />
-        :
-        <Interactive  full={this.full}/>
-        } 
-      </div>    
+        <div className="intro">
+       <Sound
+          url={Mp3}
+          playStatus={Sound.status.STOPPED}
+        />
+      <div className="introBackground">
+        <div className="introMenu animated fadeIn">
+          <Link to="/suggestion"><p>คำแนะนำ</p></Link>
+          <Link to="/interactive"><p>เข้าสู่การประเมิน</p></Link>
+        </div>
+        <div className="introText animated fadeIn">
+            <h1 className="introH1">ภาพยนตร์สั้นปฏิสัมพันธ์</h1>
+            <p className="introP">แคร์โปรดิวเซอร์ทาวน์เพียวลิมิต อพาร์ทเมนท์ท็อปบู๊ทโหลนโปสเตอร์ราสเบอร์รี บอมบ์พอเพียงออเดอร์พอเพียง ดาวน์เซลส์ซาดิสต์ปิกอัพ ออร์แกนิกบิลชัตเตอร์ โรลออน ซีดานแพนงเชิญแคมป์ ทัวร์นาเมนท์ฟลุคเคลมดาวน์ เอ๊าะรองรับแบรนด์ อิเหนาอุตสาหการฮันนีมูนไง เท็กซ์ สถาปัตย์แมชีนว่ะเวเฟอร์ซัพพลาย ทัวริสต์ตุ๊ดซาดิสม์ เลสเบี้ยนเยลลี่ ตุ๊กตุ๊กไลฟ์กรีน ติวเตอร์</p>
+        </div>
+      </div>
+      <div className="introPlayer">
+        <Player ref="bg" autoPlay loop  muted src={videoIntro} disableDefaultControls={true}> 
+          <ControlBar disableCompletely={true} />
+        </Player>
+      </div>
+    </div>       
   );
   }
 }

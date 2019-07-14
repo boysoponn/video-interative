@@ -2,7 +2,7 @@
     background: -webkit-linear-gradient(top, rgba(35,39,54,0.55) 0%,rgba(35,39,54,1) 77%,rgba(35,39,54,1) 100%);
     background: linear-gradient(to bottom, rgba(35,39,54,0.55)0%,rgba(35,39,54,1) 77%,rgba(35,39,54,1)100%);
     padding: 0 !important;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     position: absolute;
     z-index: 5;
@@ -18,22 +18,25 @@
     width: 40%;
 }
 .videoHowto{
+    pointer-events: none;
     margin: 10%;
     border: 10px azure solid;
     border-radius: 10px;
     box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.2), 0 18px 60px 0 rgba(0, 0, 0, 0.19);
 }
-.blockVideoHowto{
-    width: 100%;
-    height: 100%;
+.introMenu{
     position: absolute;
-    z-index: 5;
+    top: 5%;
+    right: 5%;
 }
-.row{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.introMenu2{
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    z-index: 10;
 }
+
 .introHowto{   
     width: 100%;
     text-align: center;
@@ -89,56 +92,32 @@
     animation-fill-mode: both;
 }
 
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-width : 320px) and (max-width : 480px) {
-    .introTextHowto{
-        font-size: 20px;
-    }
-    .introP{
-        font-size: 14px;
-    }
-    .introButton{
-        width: 120px;
-        margin: 20px;
-        padding: 12px;
-        font-size: 12px;
-    }
+@media only screen and (min-width: 320px) and (max-width: 767px) {
     .introH1{
         font-size: 30px;
     }
-    .introP{
-        font-size: 10px;
-    }
-}
-@media only screen and (min-width: 481px) and (max-width: 767px) {
     .introTextHowto{
         font-size: 30px;
     }
     .introP{
-        font-size: 18px;
+        font-size: 12px;
     }
   }
  
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-width : 768px)and (max-width : 1024px) {
     .introTextHowto{
-        font-size: 40px;
-    }
-    .introP{
-        font-size: 20px;
+        font-size: 35px;
     }
     .introH1{
-        font-size: 50px;
+        font-size: 35px;
     }
     .introP{
-        font-size: 18px;
+        font-size: 14px;
     }
 }
   
 @media only screen and (min-width : 320px) and (max-width : 1024px) {
-    .row{
-        display: unset;
-    }
     .introPlayer{
         display: none;
     }

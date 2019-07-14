@@ -11,38 +11,35 @@ class TypeInteractive extends React.Component {
     return (
     !this.props.show?null:   
     <div className={"showInteractive "+this.props.show}>
-    {this.props.interactive==='hotspot'?
-    <Hotspot
-    yes={this.props.yes}
-    no={this.props.no}
-    title={this.props.title}
-    description={this.props.description}
-    show={this.props.show}
-    yesText="dfgdfg"
-    noText="NOOOOOO"
-    yesTop={this.props.yesTop}
-    yesLeft={this.props.yesLeft}
-    yesTextRight={this.props.yesTextRight}
-    noTop={this.props.noTop}
-    noLeft={this.props.noLeft}
-    noTextRight={this.props.noTextRight}
-    />
-    : 
-    this.props.interactive==='text'?
-    <Text
-    yes={this.props.yes}
-    no={this.props.no}
-    title={this.props.title}
-    description={this.props.description}
-    show={this.props.show}
-    yesText="dfgdfg"
-    noText="NOOOOOO"
-    />
-    :null
-    }
+      {this.props.interactive==='hotspot'?
+        <Hotspot
+          yes={this.props.yes}
+          no={this.props.no}
+          show={this.props.show}
+          yesText={this.props.yesText}
+          noText={this.props.noText}
+          yesTop={this.props.yesTop}
+          yesLeft={this.props.yesLeft}
+          yesTextRight={this.props.yesTextRight}
+          noTop={this.props.noTop}
+          noLeft={this.props.noLeft}
+          noTextRight={this.props.noTextRight}
+        />
+        : 
+        this.props.interactive==='text'?
+          <Text
+            yes={this.props.yes}
+            no={this.props.no}
+            show={this.props.show}
+            yesText={this.props.yesText}
+            noText={this.props.noText}
+          />
+        :null
+      }
     </div>
   );
   }
 }
 
 export default TypeInteractive;
+

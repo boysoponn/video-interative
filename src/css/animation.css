@@ -1,4 +1,13 @@
 
+@keyframes slack {
+   from {
+     transform: translate(-50%, -50%) scale(1);
+   }
+   to {
+     transform: translate(-50%, -50%) scale(1.5);
+   }
+ }
+
 @keyframes fadeIn {
    from {
        opacity: 0;
@@ -57,105 +66,4 @@
 
 }
 
-.bounceInUp {
-    -webkit-animation-name: bounceInUp;
-    animation-name: bounceInUp;
-} 
 
-@-webkit-keyframes bounceInUp {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateY(2000px);
-     }
-     50% {
-        opacity: 1;
-        -webkit-transform: translateY(-20px);
-     }
-     100% {
-        -webkit-transform: translateY(0);
-     }
-}
- 
-@keyframes bounceInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(2000px);
-     }
-     50% {
-        opacity: 1;
-        transform: translateY(-20px);
-     }
-     100% {
-         opacity: 1;
-        transform: translateY(0);
-     }
-}
-
-.bounceInDown {
-    -webkit-animation-name: bounceInDown;
-    animation-name: bounceInDown;
-} 
-
-@-webkit-keyframes bounceInDown {
-    0% {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-     }
-     60% {
-        opacity: 1;
-        -webkit-transform: translateY(-10px);
-     }
-     100% {
-        -webkit-transform: translateY(2000px);
-     }
-}
- 
-@keyframes bounceInDown {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-     }
-     60% {
-        opacity: 1;
-        transform: translateY(-10px);
-     }
-     100% {
-        transform: translateY(2000px);
-     }
-}
-.pulsate1 {
-   -webkit-animation-name: pulsate1;
-   animation-name: pulsate1;
-} 
-
-@-webkit-keyframes pulsate1 {
-   0% {
-     -webkit-transform: scale(0.6);
-     transform: scale(0.6);
-     opacity: 1;
-     box-shadow: inset 0px 0px 25px 3px rgba(255, 255, 255, 0.75), 0px 0px 25px 10px rgba(255, 255, 255, 0.75);
-   }
-   100% {
-     -webkit-transform: scale(1);
-     transform: scale(1);
-     opacity: 0;
-     box-shadow: none;
- 
-   }
- }
- 
- @keyframes pulsate1 {
-   0% {
-     -webkit-transform: scale(0.6);
-     transform: scale(0.6);
-     opacity: 1;
-     box-shadow: inset 0px 0px 25px 3px rgba(255, 255, 255, 0.75), 0px 0px 25px 10px rgba(255, 255, 255, 0.75);
-   }
-   100% {
-     -webkit-transform: scale(1, 1);
-     transform: scale(1);
-     opacity: 0;
-     box-shadow: none;
- 
-   }
- }
