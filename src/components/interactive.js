@@ -69,7 +69,7 @@ class Interactive extends React.Component {
       })
       setTimeout(this.changeVideo,2000);
     }
-    if(state.ended && this.state.end){
+    if(state.ended && this.state.toend){
       setTimeout(this.end,2000);
     }
   }
@@ -140,7 +140,7 @@ class Interactive extends React.Component {
       noText:choiceVideo[this.state.answer].noText,
       timeInteractive:choiceVideo[this.state.answer].time?choiceVideo[this.state.answer].time:5,
       flowVideo:choiceVideo[this.state.answer].flowVideo?choiceVideo[this.state.answer].flowVideo:false,
-      end:choiceVideo[this.state.answer].end?choiceVideo[this.state.answer].end:false,
+      toend:choiceVideo[this.state.answer].end?choiceVideo[this.state.answer].end:false,
       duration:999,
       currentTime:0,
     });
@@ -155,12 +155,26 @@ class Interactive extends React.Component {
 
   end =()=>{
     this.setState({
-      redirect:true
-    })
+      end:true
+    });
   }
+
+  back=()=>{
+    this.setState({
+      back:true
+    });
+  }
+
+  again=()=>{
+    window.location.reload();
+  }
+
   renderRedirect = () => {
-    if (this.state.redirect) {
+    if (this.state.back) {
       return <Redirect to='/' />
+    }
+    if (this.state.again) {
+      return <Redirect to='/interactive' />
     }
   }
 
@@ -171,30 +185,40 @@ class Interactive extends React.Component {
         <Root>
         {this.state.start?
         <Div>
-          <Block></Block>
-            <Controls
-              rewind={this.rewind}
-              pause={this.pause}
-              forward={this.forward}
-              audio={this.audio}
-              full={this.full}
-              play={this.play}
-              muted={this.muted}
-              videoMuted={this.state.videoMuted}
-              videoPlay={this.state.videoPlay}
-            />
-              {this.state.currentTime<this.state.duration?null:
-              <TypeInteractive
-                show={this.state.show}
-                interactive={this.state.interactive}
-                yesText={this.state.yesText}
-                noText={this.state.noText}                
-                yes={this.yes}
-                no={this.no}     
-              />
-              } 
+          {!this.state.end?
+            <DivControl>
+              <Block></Block>
+                <Controls
+                  rewind={this.rewind}
+                  pause={this.pause}
+                  forward={this.forward}
+                  audio={this.audio}
+                  full={this.full}
+                  play={this.play}
+                  muted={this.muted}
+                  videoMuted={this.state.videoMuted}
+                  videoPlay={this.state.videoPlay}
+                />
+                  {this.state.currentTime<this.state.duration?null:
+                  <TypeInteractive
+                    show={this.state.show}
+                    interactive={this.state.interactive}
+                    yesText={this.state.yesText}
+                    noText={this.state.noText}                
+                    yes={this.yes}
+                    no={this.no}     
+                  />
+                  } 
+              </DivControl>
+              :
+              <Start>
+                <p onClick={this.back} className="lineAnimation ">กลับหน้าแรก</p>
+                <p>&nbsp;&nbsp;&nbsp;</p>
+                <p onClick={this.again} className="lineAnimation ">เล่นอีกครั้ง</p>
+              </Start>
+              }
               </Div>
-            :
+              :
               <Start>
                 <p onClick={this.start} className="lineAnimation ">เริ่มต้น</p>
               </Start>
@@ -230,8 +254,11 @@ const Block = styled.div`
   position:absolute;
   z-index:5;
 `;
-
 const Div = styled.div`
+display: contents;
+`;
+
+const DivControl = styled.div`
 height: 100%;
 width: 100vw;
 position: absolute;
