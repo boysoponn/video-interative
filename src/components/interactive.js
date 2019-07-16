@@ -1,38 +1,43 @@
 import React from 'react';
 import { Player  ,ControlBar} from 'video-react';
+import {Redirect} from 'react-router-dom';
 import '../css/interactive.css';
 import '../css/animation.css';
-import Click from '../video/click.mp3';
-import Video1 from '../video/tools.mp4';
-import Video2 from '../video/N_01.mp4';
-import Video3 from '../video/test4.mp4';
-import Video4 from '../video/test6.mp4';
-import Video5 from '../video/test7.mp4';
-import Video6 from '../video/test8.mp4';
-import Video7 from '../video/test9.mp4';
-import Video8 from '../video/test1.mp4';
-import Video9 from '../video/test3.mp4';
+import Video1 from '../video/video1.mp4';
+import Video2 from '../video/video2.mp4';
+import Video3 from '../video/video3.mp4';
+import Video4 from '../video/video4.mp4';
+import Video5 from '../video/video5.mp4';
+import Video6 from '../video/video6.mp4';
+import Video7 from '../video/video7.mp4';
+import Video8 from '../video/video8.mp4';
+import Video9 from '../video/video9.mp4';
+import Video10 from '../video/video10.mp4';
+import Video11 from '../video/video11.mp4';
+import Video12 from '../video/video12.mp4';
+import Video13 from '../video/video13.mp4';
 import TypeInteractive from './tools/typeInteractive';
 import styled from 'styled-components'
 import Controls from './tools/controls';
-import Sound from 'react-sound';
 
 const choiceVideo={
-  video1:{video:Video1,yes:"video2",no:"video3",interactive:'text',yesText:'อยู่ไหว',noText:'อยูไม่ไหว'},
+  video1:{video:Video1,yes:"video2",no:"video3",interactive:'text',yesText:'อยู่ไหว',noText:'อยู่ไม่ไหว'},
   video2:{video:Video2,flowVideo:"video6"},
-  video3:{video:Video3,yes:"video4",no:"video5",interactive:'text',time:50,yesText:'เอา',noText:'ไม่เอา'},
-  video4:{video:Video4,yes:"video6",no:"video5",interactive:'text',yesText:'เอา',noText:'ไม่เอา'},
-  video5:{video:Video5,yes:"video8",interactive:'hotspot',},
-  video6:{video:Video6,yes:"video9",interactive:'text',},
-  video7:{video:Video7,yes:"video9",interactive:'hotspot',},
-  video8:{video:Video8,interactive:'hotspot',},
-  video9:{video:Video9,interactive:'hotspot',},
+  video3:{video:Video3,yes:"video4",no:"video5",interactive:'text',yesText:'เอา',noText:'ไม่เอา'},
+  video4:{video:Video4,flowVideo:"video6"},
+  video5:{video:Video5,flowVideo:"video6"},
+  video6:{video:Video6,yes:"video7",no:'video8',interactive:'text',yesText:'อ่าน',noText:'ไม่อ่าน'},
+  video7:{video:Video7,yes:"video9",no:'video10',interactive:'text',yesText:'โอน',noText:'ไม่โอน'},
+  video8:{video:Video8,yes:"video9",no:'video10',interactive:'text',yesText:'โอน',noText:'ไม่โอน'},
+  video9:{video:Video9,flowVideo:"video11"},
+  video10:{video:Video10,flowVideo:"video11"},
+  video11:{video:Video11,yes:"video12",no:'video13',interactive:'text',yesText:'หยิบ',noText:'ไม่หยิบ'},
+  video12:{video:Video12,end:true},
+  video13:{video:Video13,end:true},
 };
 
 class Interactive extends React.Component {
   state={
-    clickSound:Sound.status.STOPPED,
-    show:"animated fadeIn",
     video:choiceVideo["video1"].video,
     yes:choiceVideo["video1"].yes,
     no:choiceVideo["video1"].no,
@@ -41,15 +46,9 @@ class Interactive extends React.Component {
     interactive:choiceVideo["video1"].interactive,
     timeInteractive:5,
     duration:999,
-    currentTime:0
+    currentTime:0,
+    show:"animated fadeIn"
     }
-
-  start=()=>{
-    this.setState({
-      classStart:'animated fadeOut'
-    })
-    this.refs.movie.play();
-  }
 
   componentDidMount() {
     this.refs.movie.subscribeToStateChange(this.handleStateChange.bind(this));
@@ -64,21 +63,23 @@ class Interactive extends React.Component {
       currentTime:state.currentTime,
     });
     if(state.ended && this.state.flowVideo){
-      // let flowVideo = this.state.flowVideo;
-      // this.setState({
-      // video:choiceVideo[flowVideo].video,  
-      // interactive:choiceVideo[flowVideo].interactive,
-      // yes:choiceVideo[flowVideo].yes,
-      // no:choiceVideo[flowVideo].no,  
-      // yesText:choiceVideo[flowVideo].yesText,
-      // noText:choiceVideo[flowVideo].noText,
-      // timeInteractive:choiceVideo[flowVideo].time,
-      // duration:999,
-      // currentTime:0,
-      // show:null,
-      // });
-      // setTimeout(this.setFadeIn,10000);
+      this.setState({
+        show:"animated fadeOut",   
+        answer:this.state.flowVideo
+      })
+      setTimeout(this.changeVideo,2000);
     }
+    if(state.ended && this.state.end){
+      setTimeout(this.end,2000);
+    }
+  }
+
+  start=()=>{
+    this.refs.movie.muted=false;
+    this.refs.movie.play(); 
+    this.setState({
+      start:true
+    })
   }
 
   full=()=>{
@@ -105,64 +106,44 @@ class Interactive extends React.Component {
       }
   }
   }
-  play=()=>{this.playSound();this.refs.movie.play();}
-  pause=()=>{this.playSound();this.refs.movie.pause();}
-  rewind=()=>{this.play();this.playSound();this.refs.movie.replay(10);}
-  forward=()=>{this.playSound();this.refs.movie.forward(10);}
-  muted=()=>{this.playSound();this.refs.movie.muted=true; }
-  audio=()=>{this.playSound();this.refs.movie.muted=false; }
-  playSound=()=>{this.setState({clickSound:Sound.status.PLAYING})}
-  stopSound=()=>{this.setState({clickSound:Sound.status.STOPPED})}
-
-  end=()=>{
-    alert("sdfgd")
-  }
+  play=()=>{this.refs.movie.play();}
+  pause=()=>{this.refs.movie.pause();}
+  rewind=()=>{this.play();this.refs.movie.replay(10);}
+  forward=()=>{this.refs.movie.forward(10);}
+  muted=()=>{this.refs.movie.muted=true; }
+  audio=()=>{this.refs.movie.muted=false; }
 
   yes=()=>{
     this.setState({
       show:"animated fadeOut",   
+      answer:this.state.yes
     })
-    setTimeout(this.changeVideoYes,2000);
+    setTimeout(this.changeVideo,2000);
   }
 
   no=()=>{
     this.setState({
       show:"animated fadeOut",   
+      answer:this.state.no
     })
-    setTimeout(this.changeVideoNo,2000);
+    setTimeout(this.changeVideo,2000);
   }
 
-  changeVideoYes = () => {
+  changeVideo = () => {
     this.setState({   
-      show:null,
-      video:choiceVideo[this.state.yes].video,  
-      interactive:choiceVideo[this.state.yes].interactive,
-      yes:choiceVideo[this.state.yes].yes,
-      no:choiceVideo[this.state.yes].no,  
-      yesText:choiceVideo[this.state.yes].yesText,
-      noText:choiceVideo[this.state.yes].noText,
-      timeInteractive:choiceVideo[this.state.yes].time,
-      flowVideo:choiceVideo[this.state.yes].flowVideo?choiceVideo[this.state.yes].flowVideo:false,
+      show:null, 
+      video:choiceVideo[this.state.answer].video,  
+      interactive:choiceVideo[this.state.answer].interactive,
+      yes:choiceVideo[this.state.answer].yes,
+      no:choiceVideo[this.state.answer].no,  
+      yesText:choiceVideo[this.state.answer].yesText,
+      noText:choiceVideo[this.state.answer].noText,
+      timeInteractive:choiceVideo[this.state.answer].time?choiceVideo[this.state.answer].time:5,
+      flowVideo:choiceVideo[this.state.answer].flowVideo?choiceVideo[this.state.answer].flowVideo:false,
+      end:choiceVideo[this.state.answer].end?choiceVideo[this.state.answer].end:false,
       duration:999,
       currentTime:0,
     });
-     setTimeout(this.setFadeIn,10000);
-  }
-
-  changeVideoNo = () => {
-    this.setState({   
-      show:null,
-      video:choiceVideo[this.state.no].video,  
-      interactive:choiceVideo[this.state.no].interactive,
-      yes:choiceVideo[this.state.no].yes,
-      no:choiceVideo[this.state.no].no,  
-      yesText:choiceVideo[this.state.no].yesText,
-      noText:choiceVideo[this.state.no].noText,
-      timeInteractive:choiceVideo[this.state.no].time,
-      flowVideo:choiceVideo[this.state.no].flowVideo?choiceVideo[this.state.no].flowVideo:false,
-      duration:999,
-      currentTime:0,
-    })
      setTimeout(this.setFadeIn,10000);
   }
   
@@ -172,17 +153,24 @@ class Interactive extends React.Component {
     });
   }
 
+  end =()=>{
+    this.setState({
+      redirect:true
+    })
+  }
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/' />
+    }
+  }
 
   render(){
-
       return (
       <div className="center animatedShow fadeIn">
-        <Sound
-          url={Click}
-          playStatus={this.state.clickSound}
-          onFinishedPlaying={this.stopSound}
-        />
+        {this.renderRedirect()}            
         <Root>
+        {this.state.start?
+        <Div>
           <Block></Block>
             <Controls
               rewind={this.rewind}
@@ -195,20 +183,25 @@ class Interactive extends React.Component {
               videoMuted={this.state.videoMuted}
               videoPlay={this.state.videoPlay}
             />
-            {this.state.currentTime<this.state.duration?null:
-            <TypeInteractive
-              show={this.state.show}
-              yes={this.state.yes==='end'?this.end:this.yes}
-              interactive={this.state.interactive}
-              yesText={this.state.yesText}
-              noText={this.state.noText}            
-              no={this.state.no==='end'?this.end:this.no}
-            />
-            } 
+              {this.state.currentTime<this.state.duration?null:
+              <TypeInteractive
+                show={this.state.show}
+                interactive={this.state.interactive}
+                yesText={this.state.yesText}
+                noText={this.state.noText}                
+                yes={this.yes}
+                no={this.no}     
+              />
+              } 
+              </Div>
+            :
+              <Start>
+                <p onClick={this.start} className="lineAnimation ">เริ่มต้น</p>
+              </Start>
+            }
           <Player
             ref="movie"
-            autoPlay
-            muted
+            autoPlay={this.state.start}
             src={this.state.video}
             disableDefaultControls={true}
             playsInline
@@ -236,5 +229,22 @@ const Block = styled.div`
   width: 100vw;
   position:absolute;
   z-index:5;
+`;
+
+const Div = styled.div`
+height: 100%;
+width: 100vw;
+position: absolute;
+z-index: 2;
+`;
+
+const Start = styled.div`
+height: 100%;
+width: 100vw;
+position: absolute;
+z-index: 999;
+display: flex;
+justify-content: center;
+align-items: center;
 `;
 
