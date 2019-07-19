@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'antd';
-import Tools from '../image/tool.webp';
+import Tools from '../image/tool.jpg';
 import { Drawer } from 'antd';
 import styled from 'styled-components';
 import SugControl from './tools/sugControl';
