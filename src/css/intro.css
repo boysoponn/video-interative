@@ -7,7 +7,7 @@
     z-index: 5;
 }
 .intro{
-    background-image: url("../image/bg.png");
+    background-image: url("../image/bg.webp");
     height: 100vh; 
     background-position: center;
     background-repeat: no-repeat;
@@ -100,7 +100,7 @@
         font-size:20px;
     }
     .intro{
-        background-image: url("../image/bg2.png");
+        background-image: url("../image/bg2.webp");
         height: 100vh; 
         background-position: center;
         background-repeat: no-repeat;

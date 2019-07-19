@@ -4,3 +4,7 @@ body {
 .ant-drawer-wrapper-body{
   background-color: black;
 }
+
+.video-react-big-play-button-left{
+  visibility: hidden;
+}
