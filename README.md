@@ -1,3 +1,6 @@
+หลังติดตั้ง
+ทำการปิดแถบคำสั่ง _this.handleFullScreenChange (บรรทัดที่130)
+node module/video-react/lib/components/Player.js
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
