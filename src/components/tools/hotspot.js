@@ -28,6 +28,7 @@ export default Hotspot;
 
 const HotspotComponent = styled.div`
 position: absolute
+width: 300px;
 top:${props => props.top}%;
 left:${props => props.left}%;
 `;

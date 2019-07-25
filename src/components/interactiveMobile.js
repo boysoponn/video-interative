@@ -21,7 +21,7 @@ import styled from 'styled-components'
 import Controls from './tools/controls';
 
 const choiceVideo={
-  video1:{video:Video1,yes:"video2",no:"video3",interactive:'text',yesText:'อยู่ไหว',noText:'อยู่ไม่ไหว'},
+  video1:{video:Video3,yes:"video2",no:"video3",interactive:'text',yesText:'อยู่ไหว',noText:'อยู่ไม่ไหว'},
   video2:{video:Video2,flowVideo:"video6"},
   video3:{video:Video3,yes:"video4",no:"video5",interactive:'text',yesText:'เอา',noText:'ไม่เอา'},
   video4:{video:Video4,flowVideo:"video6"},
@@ -31,12 +31,12 @@ const choiceVideo={
   video8:{video:Video8,yes:"video9",no:'video10',interactive:'text',yesText:'โอน',noText:'ไม่โอน'},
   video9:{video:Video9,flowVideo:"video11"},
   video10:{video:Video10,flowVideo:"video11"},
-  video11:{video:Video11,yes:"video12",no:'video13',interactive:'text',yesText:'หยิบ',noText:'ไม่หยิบ'},
+  video11:{video:Video11,yes:"video12",no:'video13',interactive:'text',yesText:'หยิบเงิน',noText:'ไม่หยิบเงิน'},
   video12:{video:Video12,end:true},
   video13:{video:Video13,end:true},
 };
 
-class InteractiveMobile extends React.Component {
+class interactiveDesktop extends React.Component {
   state={
     video:choiceVideo["video1"].video,
     yes:choiceVideo["video1"].yes,
@@ -45,9 +45,7 @@ class InteractiveMobile extends React.Component {
     noText:choiceVideo["video1"].noText,
     interactive:choiceVideo["video1"].interactive,
     timeInteractive:5,
-    duration:999,
-    currentTime:0,
-    show:"animated fadeIn"
+    show:null
     }
 
   componentDidMount() {
@@ -62,6 +60,11 @@ class InteractiveMobile extends React.Component {
       duration:state.duration-this.state.timeInteractive,
       currentTime:state.currentTime,
     });
+    if(this.state.currentTime < this.state.duration){
+      this.setState({
+        show:"animated fadeIn"
+      })
+    }
     if(state.ended && this.state.flowVideo){
       this.setState({
         show:"animated fadeOut",   
@@ -141,8 +144,6 @@ class InteractiveMobile extends React.Component {
       timeInteractive:choiceVideo[this.state.answer].time?choiceVideo[this.state.answer].time:5,
       flowVideo:choiceVideo[this.state.answer].flowVideo?choiceVideo[this.state.answer].flowVideo:false,
       toend:choiceVideo[this.state.answer].end?choiceVideo[this.state.answer].end:false,
-      duration:999,
-      currentTime:0,
     });
      setTimeout(this.setFadeIn,10000);
   }
@@ -206,7 +207,11 @@ class InteractiveMobile extends React.Component {
                     yesText={this.state.yesText}
                     noText={this.state.noText}                
                     yes={this.yes}
-                    no={this.no}     
+                    no={this.no}   
+                    yesTop={20}
+                    yesLeft={50}
+                    noTop={50}
+                    noLeft={20 }
                   />
                   } 
               </DivControl>
@@ -238,7 +243,7 @@ class InteractiveMobile extends React.Component {
   }
 }
 
-export default InteractiveMobile;
+export default interactiveDesktop;
 
 const Root = styled.div`
   position: relative;
@@ -274,4 +279,3 @@ display: flex;
 justify-content: center;
 align-items: center;
 `;
-

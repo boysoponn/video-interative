@@ -41,7 +41,7 @@ class Intro extends React.Component {
           visible={this.state.visible}
         >
         <PButton onClick={this.onClose}>กลับสู่หน้าหลัก</PButton>
-        <div className={"introHowto animated fadeIn"}>
+        <div>
             <Row justify="center" align="middle" type="flex">
               <Col  xs={24} sm={14} md={15} lg={15} >
                   <p className="introTextHowto">คำแนะนำก่อนเข้าสู่การประเมิน</p>

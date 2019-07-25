@@ -14,12 +14,22 @@ body {
           user-select: none; /* Non-prefixed version, currently
                                 supported by Chrome and Opera */
 }
+
+@font-face{ 
+	font-family: tufont;
+  src: url('./font/tufont.ttf');
+}
+@font-face{ 
+  font-family: tufont-bold;
+  src: url('./font/tufont-bold.ttf');
+}
+b
 audio{
   display: none;
 }
 
 p , h1 , span ,button {
-  font-family: 'Kanit';
+  font-family: 'tufont';
 }
 
 code {

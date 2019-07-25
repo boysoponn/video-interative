@@ -8,7 +8,7 @@ class Controls extends React.Component {
   render(){
     return (
         <GroupSugControl>
-            <Icon alt="icon" src={this.props.img}/><P>{this.props.text}</P>
+            <Icon alt="icon" src={this.props.img}/><P color={this.props.color}>{this.props.text}</P>
         </GroupSugControl>
     );
   }
@@ -20,7 +20,7 @@ const GroupSugControl = styled.div`
 text-align:left;
 `;
 const P = styled.span`
-color:#fff;
+color:${props => props.color?props.color:'#fff'};
 `;
 
 const Icon = styled.img`
