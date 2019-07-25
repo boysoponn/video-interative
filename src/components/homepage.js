@@ -34,7 +34,6 @@ color: white;
 margin-bottom: 0;
 margin-top: 0;
 font-size: 60px;
-font-family:'tufont-bold';
 display: inline-block;
 @media screen and (max-width: 767px) and (min-width: 320px) {
   font-size: 30px;
@@ -47,7 +46,8 @@ display: inline-block;
 const PButton = styled.p`
   color:#fff;
   cursor:pointer;
-  width:100px;
+  width:150px;
+  font-size:20px;
   :after {
     content: '';
     display: block;

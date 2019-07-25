@@ -40,12 +40,13 @@
 
 
 .introP{
-    font-size: 50px;
+    font-size: 20px;
     color: white;
     margin: 0;
     padding: 0;
     margin-bottom: 10px;
 }
+
 .introButton{
     width: 200px;
     margin: 40px;

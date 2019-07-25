@@ -21,7 +21,7 @@ import styled from 'styled-components'
 import Controls from './tools/controls';
 
 const choiceVideo={
-  video1:{video:Video3,yes:"video2",no:"video3",interactive:'text',yesText:'อยู่ไหว',noText:'อยู่ไม่ไหว'},
+  video1:{video:Video1,yes:"video2",no:"video3",interactive:'text',yesText:'อยู่ไหว',noText:'อยู่ไม่ไหว'},
   video2:{video:Video2,flowVideo:"video6"},
   video3:{video:Video3,yes:"video4",no:"video5",interactive:'text',yesText:'เอา',noText:'ไม่เอา'},
   video4:{video:Video4,flowVideo:"video6"},

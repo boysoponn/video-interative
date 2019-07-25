@@ -20,6 +20,7 @@ const GroupSugControl = styled.div`
 text-align:left;
 `;
 const P = styled.span`
+font-size:16px;
 color:${props => props.color?props.color:'#fff'};
 `;
 

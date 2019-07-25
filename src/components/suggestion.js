@@ -41,25 +41,25 @@ class Intro extends React.Component {
           visible={this.state.visible}
         >
         <PButton onClick={this.onClose}>กลับสู่หน้าหลัก</PButton>
-        <div>
-            <Row justify="center" align="middle" type="flex">
-              <Col  xs={24} sm={14} md={15} lg={15} >
-                  <p className="introTextHowto">คำแนะนำก่อนเข้าสู่การประเมิน</p>
-                  <p className="introP">กดเลือกคำตอบ ที่ตรงกับความคิดเห็นของคุณ</p> 
-                <ImageHowto>
-                    <img alt="tools" src={Tools} width='100%'/>
-                </ImageHowto>
-              </Col>
-              <Col  xs={24} sm={10} md={8} lg={6} >
-                  <SugControl img={Setting} text="ปุ่มเรียกใช้งานปุ่มควบคุมวิดีโอ"/> 
-                  <SugControl img={Pause} text="ปุ่มหยุดการเล่นวิดิโอ"/> 
-                  <SugControl img={Forward} text="ปุ่มเลื่อนการแสดงผล"/> 
-                  <SugControl img={Rewind} text="ปุ่มเลื่อนการแสดงผล"/> 
-                  <SugControl img={Audio} text="ปุ่มเปิด-ปิดเสียง"/> 
-                  <SugControl img={Full} text="ปุ่มแสดงผลเต็มหน้าจอ"/> 
-              </Col>
-            </Row> 
-        </div>
+        <Div>
+          <Row justify="center" align="middle" type="flex">
+            <Col  xs={24} sm={14} md={24} lg={18} >
+                <p className="introTextHowto">คำแนะนำก่อนเข้าสู่การประเมิน</p>
+                <p className="introP">กดเลือกคำตอบ ที่ตรงกับความคิดเห็นของคุณ</p> 
+              <ImageHowto>
+                  <img alt="tools" src={Tools} width='100%'/>
+              </ImageHowto>
+            </Col>
+            <Col  xs={24} sm={10} md={24} lg={6} >
+                <SugControl img={Setting} text="ปุ่มเรียกใช้งานปุ่มควบคุมวิดีโอ"/> 
+                <SugControl img={Pause} text="ปุ่มหยุดการเล่นวิดิโอ"/> 
+                <SugControl img={Forward} text="ปุ่มเลื่อนการแสดงผล"/> 
+                <SugControl img={Rewind} text="ปุ่มเลื่อนการแสดงผล"/> 
+                <SugControl img={Audio} text="ปุ่มเปิด-ปิดเสียง"/> 
+                <SugControl img={Full} text="ปุ่มแสดงผลเต็มหน้าจอ"/> 
+            </Col>
+          </Row> 
+        </Div>
         </Drawer>
       </div>
   );
@@ -85,9 +85,12 @@ const PButton = styled.p`
     transition: width 0.3s;
   }
 `;
+const Div = styled.div`
+margin: 0 5%;
+`;
 
 const ImageHowto = styled.div`
-margin: 5%;
+margin: 1% 5% 5% 0;
 border: 7px azure solid;
 border-radius: 10px;
 box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.2), 0 18px 60px 0 rgba(0, 0, 0, 0.19);
