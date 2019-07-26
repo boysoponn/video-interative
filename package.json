@@ -2,6 +2,7 @@
   "name": "video-interative",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "antd": "^3.16.6",
     "firebase": "^5.11.1",

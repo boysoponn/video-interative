@@ -48,7 +48,7 @@ close=()=>{
                         </Col>
                         <Col span={19}>
                             <P family="tufont-bold">กองกิจการนักศึกษา</P>
-                            <P family="tufont">คณะวิทยาการเรียนรู้และศึกษาศาสตร์</P>
+                            <P family="tufont">มหาวิทยาลัยธรรมศาสตร์</P>
                         </Col>
                     </Row>
                     <Row align='middle' type="flex">
@@ -56,8 +56,8 @@ close=()=>{
                             <Img src={Logo} />
                         </Col>
                         <Col span={19}>
-                            <P spacing family="tufont-bold">DIVISION OF STUDENT AFFAIRS </P>
-                            <P spacing family="tufont">FACULTY OF SCIENCE & TECHNOLOGY</P>
+                            <P family="tufont-bold">คณะวิทยาการเรียนรู้และศึกษาศาสตร์</P>
+                            <P family="tufont">มหาวิทยาลัยธรรมศาสตร์</P>
                         </Col>
                     </Row>
                     <Row align='middle' type="flex">
@@ -84,9 +84,15 @@ close=()=>{
                         <SugControl img={Audio} color="#000" text="ปุ่มเปิด-ปิดเสียง"/> 
                         <SugControl img={Full} color="#000" text="ปุ่มแสดงผลเต็มหน้าจอ"/> 
                     </Col>
-                </Row>                         
-                <PButton width={'110px'} onClick={this.close}>ปิดหน้าต่าง</PButton> 
+                </Row>
+                <Row justify="center" align="middle" type="flex">   
+                    <Col span={6} push={8}>                     
+                        <PButton width={'110px'} onClick={this.close}>ปิดหน้าต่าง</PButton> 
+                    </Col> 
+                    <Col span={6} push={8}>    
                         <Link to="/interactive"><PButton width={'110px'}>ชมภาพยนต์</PButton></Link>  
+                    </Col> 
+                </Row> 
                 </Div>
                 }
             </Content>
@@ -114,7 +120,6 @@ font-size:${props => props.size?props.size+'px':'30px'};
 font-family:${props => props.family};
 margin: 0 50px;
 color: #c30e2f;
-letter-spacing:${props => props.spacing?'-2px':'0px'};
 @media screen and (max-width: 767px) and (min-width: 481px) {
     font-size:18px;
 }
