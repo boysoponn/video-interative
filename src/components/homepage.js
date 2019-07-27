@@ -35,7 +35,7 @@ class Homepage extends React.Component {
             <Link to="/interactive"><PButton>ชมภาพยนตร์ <Icon type="caret-right" /></PButton></Link>
           </div>
           <div className="introText animated fadeIn">
-            <H1>เรื่อง&nbsp;&nbsp;&nbsp;เงิน</H1>
+            <H1>เรื่อง เงิน</H1>
             <P>ภาพยนตร์สั้นปฏิสัมพันธ์</P>
             <P content>เรื่องราวของเด็กสาวปีหนึ่งที่ต้องจากบ้านมาเรียนกับเหตุการณ์ที่มี เงิน เข้ามาเกี่ยวข้อง! จะจบลงอย่างไร คุณเท่านั้นที่ตัดสินใจ</P>
           </div>

@@ -205,7 +205,7 @@ class interactiveDesktop extends React.Component {
                     yes={this.yes}
                     no={this.no}   
                   />
-                  } 
+                  }  
               </DivControl>
               :
               <Start>
