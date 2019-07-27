@@ -8,13 +8,12 @@ import Rewind from './image/rewind.png'
 import Play from './image/play.png'
 import Full from './image/full.png'
 import Setting from './image/setting.png'
+import {isIOS} from 'react-device-detect';
 
 class Controls extends React.Component {
-  state={
-  }
-  
   render(){
-      return (
+    let ios = isIOS;
+    return (
         <Box>
           <SetIcon>
             <Icons alt="icon" src={Setting}/>
@@ -23,7 +22,9 @@ class Controls extends React.Component {
               <Icon alt="icon" onClick={this.props.videoPlay?this.props.play:this.props.pause} src={this.props.videoPlay?Play:Pause}/>
               <Icon alt="icon" onClick={this.props.forward} src={Forward}/>
               <Icon alt="icon" onClick={this.props.videoMuted?this.props.audio:this.props.muted} src={this.props.videoMuted?Mute:Audio}/>
-              <Icon alt="icon" onClick={this.props.full} src={Full}/>          
+              {ios?null
+              :<Icon alt="icon" onClick={this.props.full} src={Full}/>       
+              }   
             </DivIcon>
           </SetIcon> 
         </Box>
@@ -37,9 +38,15 @@ const DivIcon = styled.div`
   animation:fadeIn 1s;
   display:none;
   pointer-events: none;
-  @media screen and (max-width: 1024px) {
-    margin-right:70px;
-  }
+@media screen and (max-width: 1024px) and (min-width: 481px) {
+  margin-right:70px;
+}
+@media screen and (max-width: 480px) and (min-width: 321px) {
+  margin-right:40px;
+}
+@media screen and (max-width: 320px) {
+  margin-right:40px;
+}
 `;
 
 const Box = styled.div`

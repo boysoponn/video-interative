@@ -26,9 +26,9 @@ const choiceVideo={
   video3:{video:Video3,yes:"video4",no:"video5",interactive:'text',yesText:'เอา',noText:'ไม่เอา'},
   video4:{video:Video4,flowVideo:"video6"},
   video5:{video:Video5,flowVideo:"video6"},
-  video6:{video:Video6,yes:"video7",no:'video8',interactive:'text',yesText:'อ่าน',noText:'ไม่อ่าน'},
-  video7:{video:Video7,yes:"video9",no:'video10',interactive:'text',yesText:'โอน',noText:'ไม่โอน'},
-  video8:{video:Video8,yes:"video9",no:'video10',interactive:'text',yesText:'โอน',noText:'ไม่โอน'},
+  video6:{video:Video6,yes:"video7",no:'video8',interactive:'text',yesText:'อ่านข้อความ',noText:'ไม่อ่านข้อความ'},
+  video7:{video:Video7,yes:"video9",no:'video10',interactive:'text',yesText:'โอนเงิน',noText:'ไม่โอนเงิน'},
+  video8:{video:Video8,yes:"video9",no:'video10',interactive:'text',yesText:'โอนเงิน',noText:'ไม่โอนเงิน'},
   video9:{video:Video9,flowVideo:"video11"},
   video10:{video:Video10,flowVideo:"video11"},
   video11:{video:Video11,yes:"video12",no:'video13',interactive:'text',yesText:'หยิบเงิน',noText:'ไม่หยิบเงิน'},
@@ -166,10 +166,6 @@ class interactiveDesktop extends React.Component {
     });
   }
 
-  again=()=>{
-    window.location.reload();
-  }
-
   renderRedirect = () => {
     if (this.state.back) {
       return <Redirect to='/' />
@@ -208,18 +204,12 @@ class interactiveDesktop extends React.Component {
                     noText={this.state.noText}                
                     yes={this.yes}
                     no={this.no}   
-                    yesTop={20}
-                    yesLeft={50}
-                    noTop={50}
-                    noLeft={20 }
                   />
                   } 
               </DivControl>
               :
               <Start>
                 <p onClick={this.back} className="lineAnimation ">กลับหน้าแรก</p>
-                <p>&nbsp;&nbsp;&nbsp;</p>
-                <p onClick={this.again} className="lineAnimation ">เล่นอีกครั้ง</p>
               </Start>
               }
               </Div>

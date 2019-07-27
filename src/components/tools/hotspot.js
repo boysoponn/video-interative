@@ -28,43 +28,50 @@ export default Hotspot;
 
 const HotspotComponent = styled.div`
 position: absolute
-width: 300px;
 top:${props => props.top}%;
 left:${props => props.left}%;
 `;
 
 const Text = styled.p`
 color:#fff;
-font-size:50px
+width: 450px;
+font-size:70px
 cursor:pointer;
 -webkit-transition: 0.2s; 
 transition:  0.2s;
-    @media screen and (max-width: 768px){
-        font-size:15px;
-    }
-    @media screen and (min-width: 769px) and (max-width: 1024px){
-        font-size:33px;
-    }
+@media screen and (max-width: 1024px) and (min-width : 768px){
+    width: 200px;
+    font-size:25px;
+  }
+  @media screen and (max-width: 767px) and (min-width: 320px) {
+    width: 80px;
+    font-size:16px;
+  }
+  @media screen and (max-width: 320px) {
+    width: 72px;
+    font-size:12px;
+  }
 `;
 
 const DivText = styled.div`
 position: absolute;
 animation: fadeIn 2s ;
-top: -30px;
-left: ${props => props.textRight?'0':'50px'};
-right: ${props => props.textRight?'50px':'0'};
+top: -45px;
+left: ${props => props.textRight?'-450px':'80px'};
     :hover ${Text}{
-        transform: scale(1.05);
+        transform: scale(1.1);
     }
     @media screen and (max-width: 768px){
-        top: -10px;
-        left: ${props => props.textRight?'0':'25px'};
-        right: ${props => props.textRight?'25px':'0'};
+        top: -20px;
+        left: ${props => props.textRight?'-200px':'25px'};
     }
     @media screen and (min-width: 769px) and (max-width: 1024px){
-        top: -20px;
-        left: ${props => props.textRight?'0':'35px'};
-        right: ${props => props.textRight?'35px':'0'};
+        top: -10px;
+        left: ${props => props.textRight?'-200px':'25px'};
+    }
+    @media screen and (max-width: 320px) {
+        top: -5px;
+        left: ${props => props.textRight?'-90px':'22px'};
     }
 `;
 

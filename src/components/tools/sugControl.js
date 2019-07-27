@@ -22,6 +22,15 @@ text-align:left;
 const P = styled.span`
 font-size:16px;
 color:${props => props.color?props.color:'#fff'};
+@media screen and (max-width: 767px) and (min-width: 481px) {
+  font-size: 14px;
+}
+@media screen and (max-width: 480px) and (min-width: 321px) {
+  font-size:14px;
+}
+@media screen and (max-width: 320px) {
+  font-size:11px;
+}
 `;
 
 const Icon = styled.img`
