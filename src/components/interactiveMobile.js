@@ -3,6 +3,9 @@ import { Player  ,ControlBar} from 'video-react';
 import {Redirect} from 'react-router-dom';
 import '../css/interactive.css';
 import '../css/animation.css';
+import TypeInteractive from './tools/typeInteractive';
+import styled from 'styled-components'
+import Controls from './tools/controls';
 import Video1 from '../video/v1m.mp4';
 import Video2 from '../video/v2m.mp4';
 import Video3 from '../video/v3m.mp4';
@@ -15,10 +18,7 @@ import Video9 from '../video/v9m.mp4';
 import Video10 from '../video/v10m.mp4';
 import Video11 from '../video/v11m.mp4';
 import Video12 from '../video/v12m.mp4';
-import Video13 from '../video/v13m.mp4';
-import TypeInteractive from './tools/typeInteractive';
-import styled from 'styled-components'
-import Controls from './tools/controls';
+import Video13 from '../video/v13m.mp4'
 
 const choiceVideo={
   video1:{video:Video1,yes:"video2",no:"video3",interactive:'text',yesText:'อยู่ไหว',noText:'อยู่ไม่ไหว'},
@@ -251,6 +251,7 @@ const Block = styled.div`
 `;
 const Div = styled.div`
 display: contents;
+padding-bottom: 56.25%;
 `;
 
 const DivControl = styled.div`
